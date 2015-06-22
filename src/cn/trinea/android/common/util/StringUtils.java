@@ -224,6 +224,25 @@ public class StringUtils {
         return StringUtils.isEmpty(source) ? source : source.replaceAll("&lt;", "<").replaceAll("&gt;", ">")
                 .replaceAll("&amp;", "&").replaceAll("&quot;", "\"");
     }
+    
+	/**
+	 * ¹ıÂËhtmlÌØÊâ×Ö·û
+	 * @param str
+	 * @return
+	 */
+	public static String HtmlToText(String str){
+		str=str.replace("<br />", "\n");
+		str=str.replace("<br/>", "\n");
+		str=str.replace("&nbsp;&nbsp;", "\t");
+		str=str.replace("&nbsp;", " ");
+		str=str.replace("&#39;","\\");
+		str=str.replace("&quot;", "\\");
+		str=str.replace("&gt;",">");
+		str=str.replace("&lt;","<");
+		str=str.replace("&amp;", "&");
+		
+		return str;
+	}
 
     /**
      * transform half width char to full width char
